@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Joke Generator</title>
+    <style>
+      :root {
+        --font-family: "poppins", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      html {
+        font-size: 62.5%; /*  62.5% * 16px = 10px */
+      }
+      body {
+        background-color: #e7f5ff;
+      }
+      div {
+        font-size: 2.5rem;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        margin-inline: 2rem;
+        text-align: center;
+        
+      }
+      h1 {
+        font-size: clamp(1.5rem, 0.9rem + 3.05vw, 3rem);
+      }
+      button {
+        font-size: 2rem;
+
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        color: whitesmoke;
+        background: #339af0;
+        border: 2px solid #339af0;
+        box-shadow: 2px 2px 5px grey;
+      }
+      button:hover {
+        background: #1c7ed6;
+        border: 2px solid #1c7ed6;
+        cursor: pointer;
+      }
+      @media screen and (max-width: 386px) {
+        div {
+            min-width: 320px;
+            margin-inline: 0.5rem;
+            padding-inline: 0.5rem;
+        }
+        p {
+          font-size: 1.5rem;
+        }
+        button {
+          font-size: 1.8rem;
+          padding: 0.2rem 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Random Joke Generator 😁</h1>
+      <p id="joke">⬇️ Click the below button to see a joke!</p>
+      <button onclick="generateJoke()" id="btn">Get a Joke</button>
+    </div>
+
+    <script>
+      const jokes = [
+        "Why don’t scientists trust atoms? Because they make up everything!",
+        "Why did the scarecrow win an award? Because he was outstanding in his field!",
+        "Why don’t skeletons fight each other? They don’t have the guts.",
+        "What do you call fake spaghetti? An impasta!",
+        "Why did the bicycle fall over? Because it was two-tired!",
+      ];
+      function generateJoke() {
+        const joke = document.getElementById("joke");
+        const randomIndex = Math.floor(Math.random() * jokes.length);
+        joke.textContent = jokes[randomIndex];
+      }
+    </script>
+  </body>
+</html>
